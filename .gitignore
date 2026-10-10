@@ -1,4 +1,5 @@
-data/
+data/*
+!data/README.md
 .DS_Store
 uv.lock
 .python*
@@ -14,3 +15,7 @@ analysis/
 .svc_feature_quality_cache_v1/
 .svc_clean_derived_cache_v1/
 .svc_final_rescue_cache_v1/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/

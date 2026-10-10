@@ -1,6 +1,7 @@
 """Offline, deterministic reproduction of SBMTeam's two final SVC submissions."""
 from __future__ import annotations
 
+import argparse
 import os
 import random
 import sys
@@ -25,6 +26,7 @@ import svc_final_rescue_experiments as rescue
 
 
 SEED = 0xFACED
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 COORD_N_BINS = 8
 COORD_ALPHA = 5.0
 PCA_COMPONENTS = 128
@@ -227,6 +229,7 @@ def locate_data_dir():
     candidates = [
         Path("data"),
         Path("../data"),
+        PROJECT_ROOT / "data",
         Path("../input/week-03-hidden-pairs"),
         Path("../input/competitions/week-03-hidden-pairs"),
     ]
@@ -355,10 +358,10 @@ def _fit_comparison_baselines(X_train_raw, X_validation_raw,
     return rows
 
 
-def run(output_dir="."):
+def run(output_dir=".", data_dir=None):
     set_all_seeds()
     started = perf_counter()
-    data_dir = locate_data_dir()
+    data_dir = locate_data_dir() if data_dir is None else Path(data_dir)
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -539,7 +542,13 @@ def run(output_dir="."):
 
 
 if __name__ == "__main__":
-    result = run(".")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--data-dir", type=Path, default=None,
+                        help="Directory with the four competition CSV files")
+    parser.add_argument("--output-dir", type=Path, default=Path("submissions"),
+                        help="Directory for generated predictions (default: submissions)")
+    args = parser.parse_args()
+    result = run(output_dir=args.output_dir, data_dir=args.data_dir)
     print(result["experiment_table"].to_string(index=False))
     print(result["versions"])
     print(result["timings"])

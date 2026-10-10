@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img" aria-labelledby="title description">
+<title id="title">Hidden Pairs — финальный пайплайн NEW5</title>
+<desc id="description">512 исходных признаков преобразуются в две ветки. S100 использует sqrt(raw) и пять дополнительных блоков с суммой шести RBF-ядер. Вспомогательная SVC использует PCA128 и агрегаты. Ранги предсказаний смешиваются с весами 80 и 20 процентов, затем ранжируются повторно и сохраняются в CSV. Преобразования обучаются на train, признаки с метками строятся inner out-of-fold.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#7890ab" stroke-width="1.7" stroke-linejoin="round"/></marker>
+  <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#2b5bba" stroke-width="1.7" stroke-linejoin="round"/></marker>
+  <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#14766c" stroke-width="1.7" stroke-linejoin="round"/></marker>
+  <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.75" fill="#e0e7f0"/></pattern>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#193551" flood-opacity="0.045"/></filter>
+</defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<rect width="1440" height="1120" rx="24" fill="#f7f9fc"/>
+<rect x="20" y="132" width="1400" height="856" rx="20" fill="url(#dots)"/>
+
+<text x="40" y="60" font-size="40" fill="#182538" font-weight="700" text-anchor="start" letter-spacing="-0.8">Hidden Pairs</text>
+<text x="40" y="101" font-size="25" fill="#64758b" font-weight="400" text-anchor="start" >NEW5 · Финальный пайплайн</text>
+<rect x="1112" y="30" width="268" height="77" rx="15" fill="#ffffff" stroke="#dfe6ef" stroke-width="1.5" />
+<text x="1134" y="57" font-size="16" fill="#64758b" font-weight="700" text-anchor="start" letter-spacing="1.4">PRIVATE ROC-AUC</text>
+<text x="1134" y="91" font-size="29" fill="#2b5bba" font-weight="700" text-anchor="start" >0.94338</text>
+<text x="1356" y="87" font-size="18" fill="#64758b" font-weight="400" text-anchor="end" >SBMTeam</text>
+<text x="40" y="164" font-size="19" fill="#8b9bb0" font-weight="700" text-anchor="start" >01</text>
+<text x="75" y="164" font-size="23" fill="#3d4d62" font-weight="600" text-anchor="start" >Данные</text>
+<text x="320" y="164" font-size="19" fill="#8b9bb0" font-weight="700" text-anchor="start" >02</text>
+<text x="355" y="164" font-size="23" fill="#3d4d62" font-weight="600" text-anchor="start" >Представления</text>
+<text x="720" y="164" font-size="19" fill="#8b9bb0" font-weight="700" text-anchor="start" >03</text>
+<text x="755" y="164" font-size="23" fill="#3d4d62" font-weight="600" text-anchor="start" >Ядра и модели</text>
+<text x="1066" y="164" font-size="19" fill="#8b9bb0" font-weight="700" text-anchor="start" >04</text>
+<text x="1101" y="164" font-size="23" fill="#3d4d62" font-weight="600" text-anchor="start" >Ансамбль</text>
+<path d="M 260 477 H 282 Q 296 477 296 463 V 439 Q 296 427 308 427 H 319" fill="none" stroke="#2b5bba" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 260 555 H 278 Q 292 555 292 569 V 834 Q 292 848 306 848 H 319" fill="none" stroke="#14766c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-teal)"/>
+<path d="M 660 435 H 718" fill="none" stroke="#2b5bba" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 660 844 H 718" fill="none" stroke="#14766c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-teal)"/>
+<path d="M 980 445 H 1016 Q 1036 445 1036 465 V 562 Q 1036 577 1051 577 H 1065" fill="none" stroke="#2b5bba" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 980 852 H 1018 Q 1036 852 1036 834 V 642 Q 1036 629 1049 629 H 1065" fill="none" stroke="#14766c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-teal)"/>
+<path d="M 1223 691 V 726" fill="none" stroke="#7890ab" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 1223 808 V 848" fill="none" stroke="#7890ab" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="40" y="407" width="220" height="220" rx="18" fill="#ffffff" stroke="#dfe6ef" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="62" y="445" font-size="29" fill="#182538" font-weight="700" text-anchor="start" >Данные</text>
+<text x="62" y="476" font-size="22" fill="#64758b" font-weight="400" text-anchor="start" >512 признаков</text>
+<rect x="63" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.16"/>
+<rect x="82" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.3"/>
+<rect x="101" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.47"/>
+<rect x="120" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.25"/>
+<rect x="139" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.62"/>
+<rect x="158" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.38"/>
+<rect x="177" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.2"/>
+<rect x="196" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.52"/>
+<rect x="215" y="493" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.3"/>
+<rect x="63" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.25"/>
+<rect x="82" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.62"/>
+<rect x="101" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.38"/>
+<rect x="120" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.2"/>
+<rect x="139" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.52"/>
+<rect x="158" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.3"/>
+<rect x="177" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.16"/>
+<rect x="196" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.3"/>
+<rect x="215" y="510" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.47"/>
+<rect x="63" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.2"/>
+<rect x="82" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.52"/>
+<rect x="101" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.3"/>
+<rect x="120" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.16"/>
+<rect x="139" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.3"/>
+<rect x="158" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.47"/>
+<rect x="177" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.25"/>
+<rect x="196" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.62"/>
+<rect x="215" y="527" width="13" height="11" rx="3" fill="#2b5bba" opacity="0.38"/>
+<text x="62" y="571" font-size="17" fill="#64758b" font-weight="400" text-anchor="start" >train / validation / test</text>
+<text x="62" y="604" font-size="18" fill="#445670" font-weight="400" text-anchor="start" font-family="monospace" >f0000 … f0511</text>
+<text x="47" y="663" font-size="18" fill="#64758b" font-weight="400" text-anchor="start" >row_id — для CSV</text>
+<rect x="320" y="210" width="340" height="460" rx="18" fill="#ffffff" stroke="#ccdaf3" stroke-width="1.5" filter="url(#shadow)"/>
+<rect x="320" y="210" width="340" height="42" rx="18" fill="#eaf0fc" stroke="#ccdaf3" stroke-width="1.5" />
+<path d="M 321 232 H 659 V 251 H 321 Z" fill="#eaf0fc"/>
+<text x="341" y="238" font-size="21" fill="#2b5bba" font-weight="700" text-anchor="start" >Основная ветка</text>
+<rect x="342" y="270" width="296" height="78" rx="12" fill="#f1f5fd" stroke="#e3eafa" stroke-width="1.5" />
+<text x="359" y="300" font-size="24" fill="#2b5bba" font-weight="600" text-anchor="start" font-family="monospace" >sqrt(raw)</text>
+<text x="359" y="329" font-size="18" fill="#64758b" font-weight="400" text-anchor="start" >StandardScaler</text>
+<text x="620" y="305" font-size="23" fill="#2b5bba" font-weight="700" text-anchor="end" >68%</text>
+<text x="343" y="375" font-size="19" fill="#64758b" font-weight="400" text-anchor="start" >Признаки из log1p(raw)</text>
+<rect x="342" y="389" width="296" height="47" rx="9" fill="#f8faff" stroke="#edf1f7" stroke-width="1.5" />
+<text x="356" y="409" font-size="19" fill="#263f69" font-weight="600" text-anchor="start" >Геометрия</text>
+<text x="356" y="428" font-size="14" fill="#64758b" font-weight="400" text-anchor="start" >PCA + whitening · 16</text>
+<text x="621" y="418" font-size="19" fill="#2b5bba" font-weight="600" text-anchor="end" >10%</text>
+<rect x="342" y="442" width="296" height="47" rx="9" fill="#f8faff" stroke="#edf1f7" stroke-width="1.5" />
+<text x="356" y="462" font-size="19" fill="#263f69" font-weight="600" text-anchor="start" >Плотность</text>
+<text x="356" y="481" font-size="14" fill="#64758b" font-weight="400" text-anchor="start" >PCA + whitening · 5</text>
+<text x="621" y="471" font-size="19" fill="#2b5bba" font-weight="600" text-anchor="end" >10%</text>
+<rect x="342" y="495" width="296" height="47" rx="9" fill="#f8faff" stroke="#edf1f7" stroke-width="1.5" />
+<text x="356" y="515" font-size="19" fill="#263f69" font-weight="600" text-anchor="start" >Агрегаты</text>
+<text x="356" y="534" font-size="14" fill="#64758b" font-weight="400" text-anchor="start" >PCA + whitening · 4</text>
+<text x="621" y="524" font-size="19" fill="#2b5bba" font-weight="600" text-anchor="end" >5%</text>
+<rect x="342" y="548" width="296" height="47" rx="9" fill="#f8faff" stroke="#edf1f7" stroke-width="1.5" />
+<text x="356" y="568" font-size="19" fill="#263f69" font-weight="600" text-anchor="start" >kNN</text>
+<text x="356" y="587" font-size="14" fill="#64758b" font-weight="400" text-anchor="start" >Ближайшие соседи классов</text>
+<text x="621" y="577" font-size="19" fill="#2b5bba" font-weight="600" text-anchor="end" >5%</text>
+<rect x="342" y="601" width="296" height="47" rx="9" fill="#f8faff" stroke="#edf1f7" stroke-width="1.5" />
+<text x="356" y="621" font-size="19" fill="#263f69" font-weight="600" text-anchor="start" >Координатный LLR</text>
+<text x="356" y="640" font-size="14" fill="#64758b" font-weight="400" text-anchor="start" >PCA + whitening · 4</text>
+<text x="621" y="630" font-size="19" fill="#2b5bba" font-weight="600" text-anchor="end" >2%</text>
+<text x="338" y="705" font-size="17" fill="#64758b" font-weight="400" text-anchor="start" >Веса внутри суммы RBF-ядер</text>
+<rect x="320" y="748" width="340" height="193" rx="18" fill="#ffffff" stroke="#c9e3dd" stroke-width="1.5" filter="url(#shadow)"/>
+<rect x="320" y="748" width="340" height="42" rx="18" fill="#eaf5f1" stroke="#c9e3dd" stroke-width="1.5" />
+<path d="M 321 770 H 659 V 789 H 321 Z" fill="#eaf5f1"/>
+<text x="341" y="776" font-size="21" fill="#14766c" font-weight="700" text-anchor="start" >Вспомогательная ветка</text>
+<rect x="342" y="806" width="296" height="48" rx="9" fill="#f2f9f6" stroke="#e2efe9" stroke-width="1.5" />
+<text x="356" y="836" font-size="23" fill="#14766c" font-weight="600" text-anchor="start" >PCA128</text>
+<text x="620" y="836" font-size="21" fill="#14766c" font-weight="600" text-anchor="end" >75%</text>
+<rect x="342" y="868" width="296" height="52" rx="9" fill="#f2f9f6" stroke="#e2efe9" stroke-width="1.5" />
+<text x="356" y="890" font-size="20" fill="#265c51" font-weight="600" text-anchor="start" >Агрегаты</text>
+<text x="356" y="909" font-size="14" fill="#64758b" font-weight="400" text-anchor="start" >PCA + whitening · 4</text>
+<text x="620" y="900" font-size="21" fill="#14766c" font-weight="600" text-anchor="end" >25%</text>
+<rect x="720" y="350" width="260" height="190" rx="18" fill="#edf3ff" stroke="#c4d5f4" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="742" y="391" font-size="29" fill="#2b5bba" font-weight="700" text-anchor="start" >S100 SVC</text>
+<text x="742" y="428" font-size="21" fill="#355382" font-weight="400" text-anchor="start" >6 RBF-ядер → сумма</text>
+<text x="742" y="461" font-size="18" fill="#64758b" font-weight="400" text-anchor="start" >precomputed · C = 3</text>
+<line x1="742" y1="482" x2="958" y2="482" stroke="#cfddf3"/>
+<text x="742" y="516" font-size="16" fill="#4b6489" font-weight="400" text-anchor="start" >decision_function → rank</text>
+<rect x="720" y="768" width="260" height="176" rx="18" fill="#ebf6f1" stroke="#bdded3" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="742" y="808" font-size="26" fill="#14766c" font-weight="700" text-anchor="start" >clean_aux SVC</text>
+<text x="742" y="843" font-size="21" fill="#32665a" font-weight="400" text-anchor="start" >2 RBF-ядра → сумма</text>
+<text x="742" y="875" font-size="18" fill="#64758b" font-weight="400" text-anchor="start" >precomputed · C = 30</text>
+<line x1="742" y1="895" x2="958" y2="895" stroke="#cbe3d9"/>
+<text x="742" y="928" font-size="16" fill="#466d61" font-weight="400" text-anchor="start" >decision_function → rank</text>
+<rect x="1066" y="535" width="314" height="156" rx="18" fill="#f1edf8" stroke="#d8ceeb" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="1090" y="574" font-size="30" fill="#7657a7" font-weight="700" text-anchor="start" >NEW5</text>
+<rect x="1233" y="552" width="122" height="29" rx="9" fill="#e6def2" stroke="#e6def2" stroke-width="1.5" />
+<text x="1294" y="572" font-size="13" fill="#6d5490" font-weight="700" text-anchor="middle" letter-spacing="0.5">RANK BLEND</text>
+<circle cx="1096" cy="611" r="5" fill="#2b5bba"/>
+<text x="1112" y="619" font-size="25" fill="#354e79" font-weight="600" text-anchor="start" >80% S100</text>
+<circle cx="1096" cy="651" r="5" fill="#14766c"/>
+<text x="1112" y="659" font-size="25" fill="#32695d" font-weight="600" text-anchor="start" >20% clean_aux</text>
+<rect x="1066" y="728" width="314" height="80" rx="15" fill="#ffffff" stroke="#d8ceeb" stroke-width="1.5" />
+<text x="1090" y="761" font-size="23" fill="#604a82" font-weight="600" text-anchor="start" >Финальный ранг</text>
+<text x="1090" y="791" font-size="20" fill="#64758b" font-weight="400" text-anchor="start" >score в диапазоне [0, 1]</text>
+<rect x="1066" y="850" width="314" height="99" rx="15" fill="#ffffff" stroke="#dfe6ef" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="1090" y="885" font-size="26" fill="#182538" font-weight="700" text-anchor="start" >Submission</text>
+<text x="1090" y="918" font-size="18" fill="#475b73" font-weight="400" text-anchor="start" font-family="monospace" >final_submission.csv</text>
+<text x="1090" y="938" font-size="14" fill="#64758b" font-weight="400" text-anchor="start" font-family="monospace" >row_id,target</text>
+<rect x="40" y="1005" width="1340" height="78" rx="15" fill="#f0f3f8" stroke="#e0e6ef" stroke-width="1.5" />
+<rect x="59" y="1026" width="155" height="34" rx="9" fill="#ffffff" stroke="#dce4ef" stroke-width="1.5" />
+<text x="137" y="1049" font-size="17" fill="#4a6281" font-weight="700" text-anchor="middle" letter-spacing="0.7">INNER OOF</text>
+<text x="234" y="1038" font-size="21" fill="#4b5d74" font-weight="400" text-anchor="start" >Преобразования обучаются на train; признаки с метками строятся out-of-fold.</text>
+<text x="234" y="1066" font-size="19" fill="#77869a" font-weight="400" text-anchor="start" >Validation и test только преобразуются — их метки не участвуют в обучении.</text>
+</g></svg>

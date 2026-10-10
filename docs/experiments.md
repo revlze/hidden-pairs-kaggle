@@ -12,17 +12,17 @@
 
 5. **Leakage-safe supervised feature blocks.** Строили geometry, density, coordinate likelihood, kNN и aggregates строго внутри train-части каждого outer fold. Отдельно проверяли PCA/Factor Analysis и качество каждого блока.
 
-6. **Структурные и custom-kernel эксперименты.** Исследовали coordinate evidence, magnitude/direction decomposition, product и additive kernels, learned RBF metric, low-rank/diagonal weighting, permutation и block-sorting diagnostics.Эти опыты помогли отказаться от нестабильных направлений и оставить additivemulti-view kernel.
+6. **Структурные и custom-kernel эксперименты.** Исследовали coordinate evidence, magnitude/direction decomposition, product и additive kernels, learned RBF metric, low-rank/diagonal weighting, permutation и block-sorting diagnostics. Эти опыты помогли отказаться от нестабильных направлений и оставить additive multi-view kernel.
 
 7. **Bagging, augmentation и label cleaning.** Проверяли bagged SVC, генерацию/аугментацию, CleanLearning/Cleanlab и варианты stacking. Они не дали достаточно стабильного прироста для усложнения финального offline-пакета.
 
 8. **Fine6 multi-kernel SVC.** Смешали raw, geometry, density, aggregates, kNN и coordinate kernels с фиксированными gamma. Fine6 стал сильным историческим anchor и основой дальнейших парных сравнений.
 
-9. **Whitening и complementary auxiliary SVC.** Для малых engineered-блоков сравнивали original, PCA-whitening и family representations. Отдельная модель `0.75·PCA128 + 0.25·aggregates_white4` оказалась слабее основной сама по себе, но полезной благодаря отличающемуся ranking.
+9. **Whitening и complementary auxiliary SVC.** Для малых engineered-блоков сравнивали original, PCA-whitening и family representations. Отдельная модель с весами 75% для PCA128 и 25% для whitened aggregates оказалась слабее основной сама по себе, но полезной благодаря отличающемуся ranking.
 
-10. **Rescue K0/T6.** Исправили выбор представлений и raw gamma, затем сравнили ограниченный набор K0–K9. Финальный Rescue T6 — rank blend `0.40·Fine6 + 0.40·corrected K0 + 0.20·clean_aux`.
+10. **Rescue K0/T6.** Исправили выбор представлений и raw gamma, затем сравнили ограниченный набор K0–K9. Финальный Rescue T6 — смесь рангов с весами 40% для Fine6, 40% для corrected K0 и 20% для clean_aux.
 
-11. **Sqrt-raw last push.** Добавили отдельную метрику расстояния на стандартизованном `sqrt(raw)`. S100 заменил log-raw часть на sqrt-raw, а NEW5 объединил `0.80·S100 + 0.20·clean_aux`. Эта модель выбрана designated submission.
+11. **Sqrt-raw last push.** Добавили отдельную метрику расстояния на стандартизованном `sqrt(raw)`. S100 заменил log-raw часть на sqrt-raw, а NEW5 объединил ранги S100 и clean_aux с весами 80% и 20%. Эта модель стала финальным submission.
 
 ## Что оставлено в исполняемом сравнении
 
@@ -40,3 +40,18 @@
 10. финальный NEW5.
 
 LightGBM, Optuna, Cleanlab, augmentation и широкие экспериментальные grids в финальный executable notebook намеренно не перенесены: они отражены здесь как проведённые исследования, но потребовали бы лишних зависимостей или времени.
+
+## Итог Kaggle
+
+В итоговом leaderboard команда **SBMTeam** заняла **28-е место** с NEW5. Ниже — результаты из сохранённого списка отправок команды.
+
+| Submission | Public ROC-AUC | Private ROC-AUC | Роль |
+| --- | ---: | ---: | --- |
+| `submission_svc_geom_all.csv` | 0.94207 | 0.94461 | Лучшая отдельная загрузка по private score |
+| `submission_svc_validated.csv` | 0.94119 | 0.94419 | Предыдущий вариант SVC |
+| `submission_NEW5_sqrt_s100_aux20.csv` | 0.94110 | 0.94338 | Итог команды в leaderboard |
+| `submission_rescue_corrected_best.csv` | 0.94228 | 0.94270 | Второй финальный вариант из презентации |
+
+В финальном пакете также воспроизводится Rescue T6: CV ROC-AUC 0.93356, validation ROC-AUC 0.95518. Для NEW5 эти локальные метрики составляют 0.93430 и 0.95494.
+
+Описание признаков, схема обучения и результаты двух финальных моделей разобраны в [презентации SBMTeam](https://www.figma.com/deck/86JEn2nMjXfgwNb3v63lXK/SBMTeam_presentation?node-id=2-35).
